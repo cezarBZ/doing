@@ -1,0 +1,52 @@
+.sideNavContainer {
+  display: none;
+  flex-direction: column;
+  // background-color: grey;
+	border-right: 1px solid grey;
+  height: 100dvh;
+  padding: 10px;
+
+  .navControl {
+    display: flex;
+		margin-bottom: 20px;
+    button {
+			display: flex;
+			font-size: 10px;
+			align-items: center;
+      background-color: transparent;
+      border: none;
+      margin-left: auto;
+			cursor: pointer;
+    }
+  }
+
+  .profileContainer {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .optsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px 5px ;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: rgba(217, 217, 217, 0.275);
+      }
+    }
+  }
+}
+
+.show {
+	display: flex;
+}
