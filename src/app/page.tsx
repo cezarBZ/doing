@@ -1,11 +1,10 @@
-import SideNav from "@/components/sideNav/SideNav";
+"use client";
 import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <SideNav />
-      {"I'll DO IT"}
+      <div className={styles.content}>{"I'll DO IT"}</div>
     </div>
   );
 }

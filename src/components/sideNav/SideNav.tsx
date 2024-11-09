@@ -1,45 +1,63 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SideNav.module.scss";
 import ProfilePic from "../profilePic/ProfilePic";
 import CalendarIcon from "@/assets/icons/CalendarIcon";
 import CheckIcon from "@/assets/icons/CheckIcon";
 import ClockIcon from "@/assets/icons/ClockIcon";
 import LeftArrowIcon from "@/assets/icons/LeftArrowIcon";
+import BurgerIcon from "@/assets/icons/BurgerIcon";
+import Link from "next/link";
 
 const SideNav = () => {
-  const [showNav, setShowNav] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleMenuOpening = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  return showNav? (
-    <div className={`${styles.sideNavContainer} ${showNav && styles.show}`}>
-      <div className={styles.navControl}>
-        <button onClick={() => setShowNav(false)}>
-          <LeftArrowIcon />
-          Fechar
-        </button>
-      </div>
-      <div className={styles.profileContainer}>
-        <ProfilePic />
-        Cézar Bezerra
-      </div>
-      <hr />
+  useEffect(() => {
+    console.log(isMenuOpen);
+  }, [isMenuOpen]);
 
-      <div className={styles.optsContainer}>
-        <div className={styles.opt}>
-          <CalendarIcon />
-          Calendário
+  return (
+    <>
+      {!isMenuOpen && (
+        <div onClick={handleMenuOpening} className={styles.iconContainer}>
+          <BurgerIcon />
         </div>
-        <div className={styles.opt}>
-          <CheckIcon />
-          Tarefas
+      )}
+      <div
+        className={`${styles.sideNavContainer} ${isMenuOpen && styles.show}`}
+      >
+        <div className={styles.navControl}>
+          <button onClick={handleMenuOpening}>
+            <LeftArrowIcon />
+            Fechar
+          </button>
         </div>
-        <div className={styles.opt}>
-          <ClockIcon />
-          Pomodoro
+        <div className={styles.profileContainer}>
+          <ProfilePic />
+          Cézar Bezerra
+        </div>
+        <hr />
+
+        <div className={styles.optsContainer}>
+          <Link href={"/calendar"} className={styles.opt}>
+            <CalendarIcon />
+            Calendário
+          </Link>
+          <Link href={"/tasks"} className={styles.opt}>
+            <CheckIcon />
+            Tarefas
+          </Link>
+          <Link href={"/pomodoro"} className={styles.opt}>
+            <ClockIcon />
+            Pomodoro
+          </Link>
         </div>
       </div>
-    </div>
-  ) : <button onClick={() => setShowNav(true)}>Abrir menu</button>;
+    </>
+  );
 };
 
 export default SideNav;

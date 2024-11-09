@@ -1,22 +1,23 @@
 .sideNavContainer {
-  display: none;
+  display: flex;
   flex-direction: column;
   // background-color: grey;
-	border-right: 1px solid grey;
   height: 100dvh;
-  padding: 10px;
+  width: 0px;
+  overflow: hidden;
+  transition: width 0.5s ease;
 
   .navControl {
     display: flex;
-		margin-bottom: 20px;
+    margin-bottom: 20px;
     button {
-			display: flex;
-			font-size: 10px;
-			align-items: center;
+      display: flex;
+      font-size: 10px;
+      align-items: center;
       background-color: transparent;
       border: none;
       margin-left: auto;
-			cursor: pointer;
+      cursor: pointer;
     }
   }
 
@@ -37,8 +38,9 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 8px 5px ;
+      padding: 5px 8px 5px;
       border-radius: 10px;
+      cursor: pointer;
 
       &:hover {
         background-color: rgba(217, 217, 217, 0.275);
@@ -48,5 +50,13 @@
 }
 
 .show {
-	display: flex;
+  width: 15%;
+  padding: 10px;
+  border-right: 1px solid grey;
+  overflow: visible;
+}
+
+.iconContainer {
+  cursor: pointer;
+  height: fit-content;
 }
