@@ -1,0 +1,14 @@
+.tasksPage {
+  padding: 3px 20px;
+
+  .content {
+    display: flex;
+    justify-content: center;
+
+    .tasks {
+      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

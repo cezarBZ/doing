@@ -1,0 +1,28 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  height: 20px;
+  width: 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: border 0.5s ease-in-out;
+
+  svg {
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  .showIcon {
+    width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 18px 2px white;
+  }
+}
+
+.removeBorder {
+  border: none;
+}
